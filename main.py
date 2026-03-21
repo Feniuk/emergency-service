@@ -1,0 +1,1 @@
+from data.py import graph, hospitls
