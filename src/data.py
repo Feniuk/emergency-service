@@ -11,3 +11,15 @@ graph = {
 }
 
 hospitals = ["Klinikum Ernst von Bergmann", "Alexianer St. Josefs Krankenhaus"]
+
+coordinates = {
+    "Hbf": (52.391, 13.066),
+    "Brandenburger Tor": (52.396, 13.055),
+    "Sanssouci": (52.404, 13.038),
+    "University": (52.401, 13.015),
+    "Park": (52.395, 13.010),
+    "Babelsberg": (52.390, 13.090),
+    "FilmPark": (52.391, 13.095),
+    "Klinikum Ernst von Bergmann": (52.400, 13.060),
+    "Alexianer St. Josefs Krankenhaus": (52.384, 13.045)
+}
