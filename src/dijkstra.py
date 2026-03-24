@@ -17,12 +17,14 @@ def dijkstra(graph, starting_point):
     
     initial_data[starting_point]["cost"] = 0
     visited = []
+    visited_nodes_counter = 0
     current = starting_point
     min_heap = []
     heappush(min_heap, (0, starting_point))
     while min_heap:
         if current not in visited:
             visited.append(current)
+            visited_nodes_counter += 1
             for neighbor_node in graph[current]:
                 if neighbor_node not in visited:
                     cost = initial_data[current]["cost"] + graph[current][neighbor_node]
@@ -34,4 +36,4 @@ def dijkstra(graph, starting_point):
         temp = heappop(min_heap)
         current = temp[1]
 
-    return initial_data
+    return initial_data, visited_nodes_counter

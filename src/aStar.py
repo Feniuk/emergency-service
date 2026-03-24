@@ -30,14 +30,19 @@ def a_star(graph, starting_point, hospitals):
     
     initial_data[starting_point]["cost"] = 0
     visited = []
-    current = starting_point
+    visited_nodes_counter = 0
     min_heap = []
-    heappush(min_heap, (0, starting_point))
+    first_priority = heuristic_algorithm(starting_point, hospitals, coordinates)
+    heappush(min_heap, (first_priority, starting_point))
     while min_heap:
+        temp = heappop(min_heap)
+        current_smallest_priority_value = temp[0]
+        current = temp[1]
         if current not in visited:
             visited.append(current)
+            visited_nodes_counter += 1
         if current in hospitals:
-            return current, initial_data
+            return current, initial_data, visited_nodes_counter
         for neighbor_node in graph[current]:
                 if neighbor_node not in visited:
                     cost = initial_data[current]["cost"] + graph[current][neighbor_node]
@@ -49,4 +54,4 @@ def a_star(graph, starting_point, hospitals):
                         priority = cost + heuristic
                         heappush(min_heap, (priority, neighbor_node))
 
-    return None, initial_data
+    return None, initial_data, visited_nodes_counter
